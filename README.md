@@ -27,9 +27,31 @@
 
 ### 4. 환경설정 및 간단 API 구현
 
+```yml
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+    username: user
+    password : 1234
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create # 자동 테이블 생성
+    properties:
+      hibernate:
+        format_sql: true
+
+
+logging:
+  level:
+    org.hibernate.SQL: debug # JPA가 생성하는 모든 SQL 로그가 보임
+```
+
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/restapi/createDelete.PNG" width="400" height="300">
  
 ```
-
+JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수로 적용 
+* 테스트 환경에서는 트랜젝션 후 Rollback이 default로 이루어짐
 ```
 
