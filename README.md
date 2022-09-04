@@ -24,3 +24,12 @@
            : Hibernate 제공 
 ```
 
+
+### 4. 환경설정 및 간단 API 구현
+
+ <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/restapi/createDelete.PNG" width="400" height="300">
+ 
+```
+
+```
+
