@@ -55,3 +55,20 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 * 테스트 환경에서는 트랜젝션 후 Rollback이 default로 이루어짐
 ```
 
+### 5. logging 설정 
+#### p6spy
+
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/log/logSetting.PNG" width="400" height="300">
+
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/log/logConsole.PNG" width="400" height="300">
+
+```
+* 로깅 처리 
+ - logging: 
+      level: 
+         org.hibernate.type : trace <= 요청 파라미터 출력 
+ - 외부 라이브러리 https://github.com/gavlyukovskiy/spring-boot-data-source-decorator
+   1) p6spy 적용 
+   * 운영 환경 시 성능 테스트 필요 
+
+```
