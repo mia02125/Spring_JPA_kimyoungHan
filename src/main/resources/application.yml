@@ -1,9 +1,13 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/test
-    username: user
-    password : 1234
-    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:tcp://localhost/~/test
+#    username: user
+#    password : 1234
+#    driver-class-name: org.h2.Driver
+    url: jdbc:postgresql://localhost:5432/test
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
@@ -16,3 +20,6 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug # JPA가 생성하는 모든 SQL 로그가 보임
+    org.hibernate.type : trace # 요청 파라미터값 출력
+
+
