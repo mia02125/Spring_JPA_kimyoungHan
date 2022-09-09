@@ -72,3 +72,12 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
    * 운영 환경 시 성능 테스트 필요 
 
 ```
+
+### 6. Entity 관계 정의
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relation.PNG" width="400" height="300">
+```
+연관관계의 주체는 FK에 가까운 Entity인 Order테이블을 기준으로
+두기때문에 mappedBy 사용하여 order에 직접적인 영향을 주지않고 읽기 전용으로 한다.
+ex) member정보를 update할 경우 order테이블이 update되는 경우가 생기는 오류 발생
+( mappedBy = [Order테이블에 존재하는 Member의 변수명] )
+```
