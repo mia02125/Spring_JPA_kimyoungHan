@@ -1,5 +1,4 @@
 # 실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발(김영한) 
-
 ```
 * 개발환경 : Spring Boot, Thymeleaf, Spring Data JPA, Lombok, H2 DataBase
 ```
@@ -74,6 +73,9 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 ```
 
 ### 6. Entity 관계 정의
+
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/setting.PNG" width="400" height="300">
+
 <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relation.PNG" width="400" height="300">
 
 ```
