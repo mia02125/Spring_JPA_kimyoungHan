@@ -1,7 +1,7 @@
 package japbook.jpashop.controller;
 
 import japbook.jpashop.repository.MemberRepository;
-import japbook.jpashop.vo.Member;
+import japbook.jpashop.domain.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,15 +1,12 @@
 package japbook.jpashop.repository;
 
-import japbook.jpashop.vo.Member;
-import org.junit.jupiter.api.Assertions;
+import japbook.jpashop.domain.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
 import javax.transaction.Transactional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class MemberRepositoryTest {
