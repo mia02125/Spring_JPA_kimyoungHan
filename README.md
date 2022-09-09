@@ -73,9 +73,10 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 ```
 
 ### 6. Entity 관계 정의
-
-<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/setting.PNG" width="400" height="300">
-
+<div style="display: flex">
+ <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/setting.PNG" width="400" height="300">
+ <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/DBsetting.PNG" width="400" height="300">
+</div>
 <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relation.png" width="700" height="300">
 
 ```
