@@ -76,7 +76,7 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 
 <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/setting.PNG" width="400" height="300">
 
-<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relation.PNG" width="400" height="300">
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relation.png" width="400" height="300">
 
 ```
 연관관계의 주체는 FK에 가까운 Entity인 Order테이블을 기준으로
