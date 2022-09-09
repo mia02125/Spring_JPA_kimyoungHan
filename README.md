@@ -89,12 +89,13 @@ ex) member정보를 update할 경우 order테이블이 update되는 경우가 �
 ( mappedBy = [Order테이블에 존재하는 Member의 변수명] )
 
 oneToOne 연관관계의 주체는 상황마다 다르지만 저자의 경우 Access하는 기준을 연관관계의 주체로 잡음
-
 ```
+
 <div style="display: flex">
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/inheritance.PNG" width="400" height="300">
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/Discriminator.PNG" width="400" height="300">
 </div>
+
 ```
 @Inheritanceh(상속 매핑)
  1. SINGLE_TABLE : 테이블을 하나만 사용하는 방식(조인이 필요없기 때문에 조회 성능이 빠름)
@@ -126,4 +127,3 @@ oneToOne 연관관계의 주체는 상황마다 다르지만 저자의 경우 Ac
    * 절대 사용 금지 ex) Enum 가운데 구분값을 추가하면 시스템 전체적인 문제 발생
 2. STRING : 문자열로 정의
 ```
-
