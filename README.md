@@ -131,3 +131,14 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
    * 절대 사용 금지 ex) Enum 가운데 구분값을 추가하면 시스템 전체적인 문제 발생
 2. STRING : 문자열로 정의
 ```
+
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/erd.PNG" width="500" height="100">
+
+```
+객체 연관관계 구축 완료 
+* 에러사항 
+에러 내용 : Repeated column in mapping for entity 오류 발생 시 column 이름이 중복되는 문제 발생 가능성 존재
+@AttributeOverride(name = [column명], column = @Column(name = [DB 내 정의할 column명])),
+출처 : https://galid1.tistory.com/592
+
+```
