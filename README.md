@@ -142,3 +142,10 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 출처 : https://galid1.tistory.com/592
 
 ```
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relationMethod.PNG" width="400" height="400">
+
+```
+* 연관관계 메서드 
+Member vo내 데이터를 적재 시 order의 데이터까지 넣어야하는것을 다음과 같이 간단하게 만들 수 있다. 
+```
+ 
