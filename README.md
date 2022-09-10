@@ -154,7 +154,7 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relationMethod.PNG" width="300" height="300">
 
 ```
-* 연관관계 편의 메서드 
+* 연관관계 편의 메서드 ( 양방향일 때 사용하면 유용 ) 
 양방향 연관관계를 가진 도메인에서 연관관계 편의 메소드를 통해서 제어 ( 제어할 수 있는 도메인에 정의하는 것이 낫다 ) 
 ex) Member vo내 데이터를 적재 시 order의 데이터까지 넣어야하는것을 다음과 같이 간단하게 만들 수 있다. 
 
