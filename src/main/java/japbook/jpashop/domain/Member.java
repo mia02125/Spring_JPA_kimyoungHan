@@ -16,9 +16,9 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
-    private Long memberId;
+    private Long id;
 
-    private String memberName;
+    private String name;
 
     @Embedded /* 내장 타입을 포함 */
     @AttributeOverrides({ /*  homeAddress, workAddress의 컬럼명이 서로 중복되기 때문 */
@@ -43,12 +43,4 @@ public class Member {
     */
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
-
-    public Collection<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Collection<Order> orders) {
-        this.orders = orders;
-    }
 }
