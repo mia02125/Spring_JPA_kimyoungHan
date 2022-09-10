@@ -57,9 +57,9 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 ### 5. logging 설정 
 #### p6spy
 
-<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/log/logSetting.PNG" width="400" height="300">
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/log/logSetting.PNG" width="500" height="100">
 
-<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/log/logConsole.PNG" width="400" height="300">
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/log/logConsole.PNG" width="850" height="200">
 
 ```
 * 로깅 처리 
@@ -73,27 +73,31 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 ```
 
 ### 6. Entity 관계 정의
+
 <div style="display: flex">
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/setting.PNG" width="400" height="300">
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/DBsetting.PNG" width="400" height="300">
 </div>
 <div style="display: flex">
+ <h4>OneToMany</h4>
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relation.png" width="700" height="300">
+ <h4>OneToOne</h4>
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relation1.png" width="700" height="300">
 </div>
-```html
-oneToMany 연관관계의 주체는 FK에 가까운 Entity인 Order테이블을 기준으로
-두기때문에 mappedBy 사용하여 order에 직접적인 영향을 주지않고 읽기 전용으로 정의
-* 연관관계의 주체는 @JoinColumn 정의 
-ex) member정보를 update할 경우 order테이블이 update되는 경우가 생기는 오류 발생
-( mappedBy = [Order테이블에 존재하는 Member의 변수명] )
 
-oneToOne 연관관계의 주체는 상황마다 다르지만 저자의 경우 Access하는 기준을 연관관계의 주체로 잡음
+```
+@OneToMany(mappedBy = [Order테이블에 존재하는 Member의 변수명])
+ - oneToMany 연관관계의 주체는 FK에 가까운 Entity인 Order테이블을 기준으로 두기때문에 mappedBy 사용하여 order에 직접적인 영향을 주지않고 읽기 전용으로 정의
+   * 연관관계의 주체는 @JoinColumn 정의 
+   ex) member정보를 update할 경우 order테이블이 update되는 경우가 생기는 오류 발생
+
+@OneToOne
+ - oneToOne 연관관계의 주체는 상황마다 다르지만 저자의 경우 Access하는 기준을 연관관계의 주체로 잡음
 ```
 
-<div style="display: flex">
- <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/inheritance.PNG" width="400" height="300">
- <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/Discriminator.PNG" width="400" height="300">
+<div style="display : flex">
+ <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/inheritance.PNG" width="500" height="400">
+ <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/Discriminator.PNG" width="500" height="400">
 </div>
 
 ```
@@ -111,7 +115,7 @@ oneToOne 연관관계의 주체는 상황마다 다르지만 저자의 경우 Ac
    ex) 'B'라 지정하면 Entity 저장 시 부모클래스인 Book의 dtype에 B가 저장
 ```
 
-<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/embed.PNG" width="400" height="300">
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/embed.png" width="1000" height="400">
 
 ```
 @Embeddable 
@@ -119,7 +123,7 @@ oneToOne 연관관계의 주체는 상황마다 다르지만 저자의 경우 Ac
 
 ```
 
-<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/enum.PNG" width="400" height="300">
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/enum.PNG" width="500" height="100">
 
 ```
 @Enumerated
