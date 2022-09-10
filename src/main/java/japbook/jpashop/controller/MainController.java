@@ -17,7 +17,7 @@ public class MainController {
     public String main(Model model) {
 
         Member member = new Member();
-        member.setUsername("user1");
+        member.setMemberName("user1");
 
         Long id = memberRepository.save(member);
         Member selectMember = memberRepository.find(id);

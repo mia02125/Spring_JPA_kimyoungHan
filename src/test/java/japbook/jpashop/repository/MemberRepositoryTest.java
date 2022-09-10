@@ -20,7 +20,7 @@ public class MemberRepositoryTest {
     @Rollback(false) /* 테스트 환경에서는 트랜젝션 후 록백이 default로 이루어짐 */
     public void testMember() throws Exception {
         Member member = new Member();
-        member.setUsername("user1");
+        member.setMemberName("user1");
 
         Long id = memberRepository.save(member);
         Member selectMember = memberRepository.find(id);

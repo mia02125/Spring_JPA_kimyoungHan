@@ -16,7 +16,7 @@ public class MemberRepository {
     @Transactional /* JPA는 Transaction을 기반으로 작동 */
     public Long save(Member member) {
         em.persist(member);
-        return member.getId();
+        return member.getMemberId();
     }
 
     @Transactional

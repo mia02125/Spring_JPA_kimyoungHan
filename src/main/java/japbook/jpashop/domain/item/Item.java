@@ -1,10 +1,13 @@
 package japbook.jpashop.domain.item;
 
 
+import japbook.jpashop.domain.Category;
+import japbook.jpashop.domain.CategoryItem;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 /*
@@ -27,6 +30,10 @@ public abstract class Item {
     private Long id;
 
     private String name;
+
+
+    @OneToMany(mappedBy = "item")
+    private List<CategoryItem> categoryItem;
 
     private int price;
 

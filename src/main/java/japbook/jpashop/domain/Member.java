@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -20,9 +21,19 @@ public class Member {
     private String memberName;
 
     @Embedded /* 내장 타입을 포함 */
+    @AttributeOverrides({ /*  homeAddress, workAddress의 컬럼명이 서로 중복되기 때문 */
+        @AttributeOverride(name = "city", column = @Column(name = "home_city")),
+        @AttributeOverride(name = "street", column = @Column(name = "home_street")),
+        @AttributeOverride(name = "zipcode", column = @Column(name = "home_zipcode"))
+    })
     private Address homeAddress;
 
     @Embedded /* 내장 타입을 포함 */
+    @AttributeOverrides({
+        @AttributeOverride(name = "city", column = @Column(name = "company_city")),
+        @AttributeOverride(name = "street", column = @Column(name = "company_street")),
+        @AttributeOverride(name = "zipcode", column = @Column(name = "company_zipcode"))
+    })
     private Address companyAddress;
     /*
     * 연관관계의 주체는 FK에 가까운 Entity인 Order테이블을 기준으로
@@ -32,4 +43,12 @@ public class Member {
     */
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
+
+    public Collection<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
+    }
 }

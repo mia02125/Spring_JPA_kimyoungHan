@@ -27,6 +27,14 @@ public class Order {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
     /*
