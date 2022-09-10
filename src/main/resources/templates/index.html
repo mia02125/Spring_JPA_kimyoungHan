@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
 <head>
     <meta http-equiv="Content-Type" charset="test/html; charset=UTF-8">
     <title>Title</title>
 </head>
+
 <body>
     <p th:text="${data}"></p>
     <p>[[${data}]]</p>
-</body>
 
+    <input type="button" onclick="saveOrder();" value="저장"></body>
+    <input type="button" onclick="findOrder();" value="찾기"></body>
+</body>
+<script>
+
+    async function asyncAjax(url, data, method) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url : url,
+            data : data,
+            method : method,
+            dataType : 'json',
+            success : function (data) {
+                resolve(data);
+            },
+            error : function (error) {
+                reject(error);
+            }
+        });
+    });
+}
+
+    async function findOrder() {
+        let findOrder = await asyncAjax('/find', {id : 1}, 'POST');
+        console.log(findOrder);
+    }
+    async function saveOrder() {
+        await asyncAjax('/save', {}, 'POST');
+    }
+
+
+
+</script>
 </html>

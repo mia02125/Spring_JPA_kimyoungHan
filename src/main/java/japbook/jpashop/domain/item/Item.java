@@ -33,9 +33,17 @@ public abstract class Item {
 
 
     @OneToMany(mappedBy = "item")
-    private List<CategoryItem> categoryItem;
+    private List<CategoryItem> categoryItems;
 
     private int price;
 
     private int stockQuantity;
+
+    /*
+    연관관계 편의 메서드
+    */
+    public void addCategoryItem(CategoryItem categoryItem) {
+        categoryItems.add(categoryItem);
+        categoryItem.setItem(this);
+    }
 }

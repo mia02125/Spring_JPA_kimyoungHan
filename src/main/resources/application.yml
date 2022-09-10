@@ -9,12 +9,14 @@ spring:
     password: 1234
     driver-class-name: org.postgresql.Driver
 
+
   jpa:
     hibernate:
       ddl-auto: create # 자동 테이블 생성
     properties:
       hibernate:
         format_sql: true
+
 
 
 logging:

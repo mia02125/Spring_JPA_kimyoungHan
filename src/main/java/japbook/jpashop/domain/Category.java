@@ -18,8 +18,14 @@ public class Category {
     private Long id;
 
     @OneToMany(mappedBy = "category")
-    private List<CategoryItem> categoryItem;
+    private List<CategoryItem> categoryItems;
 
     private Long name;
-
+    /*
+    연관관계 편의 메서드
+    */
+    public void addCategoryItem(CategoryItem categoryItem) {
+        categoryItems.add(categoryItem);
+        categoryItem.setCategory(this);
+    }
 }

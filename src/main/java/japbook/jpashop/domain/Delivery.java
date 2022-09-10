@@ -15,7 +15,7 @@ public class Delivery {
     @Column(name = "delivery_id")
     private Long id;
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "delivery")
     private Order order;
 
     @Embedded
@@ -27,4 +27,12 @@ public class Delivery {
     */
     @Enumerated(EnumType.STRING) 
     private DeliveryStatus status;
+
+    /*
+    연관관계 편의 메서드
+    */
+    public void setOrder(Order order) {
+        this.order = order;
+        order.setDelivery(this);
+    }
 }
