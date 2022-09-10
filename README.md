@@ -2,6 +2,7 @@
 
 ## 핵심키워드 
 - [Gradle패키지](##3.Gradle_설정_검증)
+- [Transaction](Transaction)
 
 
 
