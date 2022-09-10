@@ -15,7 +15,7 @@
  - lombok까지 모두 설치 후 Annotation Processors에서 Enable annotation processing 체크박스 선택 
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/setting/set_annotation_after_lombok.PNG" width="400" height="300">
  
-## 3.Gradle_설정_및_검증
+## 3. Gradle 설정 및 검증
 #### 핵심 : (스프링(MVC, ORM, 데이터 JPA), DATA JPA, Hibernate 
 #### 기타 : H2 DB, HikariCP(Connection Pool), Thymeleaf, loging(SLF4J, LogBack), TEST
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/setting/dependencies.PNG" width="400" height="400">
