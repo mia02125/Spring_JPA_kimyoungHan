@@ -1,9 +1,11 @@
 # 실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발(김영한) 
 
 ## 핵심키워드 
-- [Gradle패키지](##3.Gradle_설정_검증)
-- [Transaction](Transaction)
-
+- [Gradle패키지](#3.Gradle_설정_검증)
+- [Transaction](#4.yml_환경설정)
+- [Inheritance](#6.도메인_분석_설계)
+- [Enumerated](#6.도메인_분석_설계)
+- [연관관계 편의 메서드](#6.도메인_분석_설계)
 
 
 ```
@@ -108,7 +110,7 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 </div>
 
 ```
-@Inheritanceh(상속 매핑)
+@Inheritance(상속 매핑)
  1. SINGLE_TABLE : 테이블을 하나만 사용하는 방식(조인이 필요없기 때문에 조회 성능이 빠름)
  2. JOINED : 조인 전략(쿼리 복잡 및 CRUD할 경우 부모/자식 클래스 모두 저장하기 때문에 두번의 쿼리 실행)
  3. TABLE_PER_CLASS : 각각의 테이블을 만드는 방식 (추천하지않음 -> union을 사용하기 때문에 성능이 느림)
