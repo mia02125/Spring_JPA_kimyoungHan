@@ -132,7 +132,7 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 2. STRING : 문자열로 정의
 ```
 
-<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/erd.PNG" width="500" height="100">
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/erd.PNG" width="550" height="450">
 
 ```
 객체 연관관계 구축 완료 
