@@ -24,6 +24,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6' /* 출처 : https://github.com/gavlyukovskiy/spring-boot-data-source-decorator, 운영 배포 시 성능 테스트부터 진행 필요 */
+	implementation 'io.springfox:springfox-boot-starter:3.0.0' /* swagger */
 	implementation 'org.postgresql:postgresql:42.2.10'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'

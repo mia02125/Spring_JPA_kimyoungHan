@@ -1,9 +1,10 @@
-async function asyncAjax(url, data, method) {
+function asyncAjax(url, reqData, method) {
     return new Promise((resolve, reject) => {
         $.ajax({
             url : url,
-            data : data,
+            data : JSON.stringify(reqData),
             method : method,
+            contentType: 'application/json;charset=UTF-8',
             dataType : 'json',
             success : function (data) {
                 resolve(data);

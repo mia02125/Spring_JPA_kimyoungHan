@@ -11,17 +11,17 @@
     <p th:text="${data}"></p>
     <p>[[${data}]]</p>
 
-    <input type="button" onclick="saveOrder();" value="저장"></body>
-    <input type="button" onclick="findOrder();" value="찾기"></body>
+    <input type="button" onclick="saveOrder();" value="저장"/>
+    <input type="button" onclick="findOrder();" value="찾기"/>
 </body>
 <script>
-
-    async function asyncAjax(url, data, method) {
+function asyncAjax(url, reqData, method) {
     return new Promise((resolve, reject) => {
         $.ajax({
             url : url,
-            data : data,
+            data : JSON.stringify(reqData),
             method : method,
+            contentType: 'application/json;charset=UTF-8',
             dataType : 'json',
             success : function (data) {
                 resolve(data);
@@ -38,7 +38,11 @@
         console.log(findOrder);
     }
     async function saveOrder() {
-        await asyncAjax('/save', {}, 'POST');
+        let data = {
+          name : "jaemin"
+        }
+        let result = await asyncAjax('/member', data, 'POST');
+        console.log(result);
     }
 
 
