@@ -1,15 +1,24 @@
 # 실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발(김영한) 
+
+## 핵심키워드 
+- [Gradle패키지](#3.Gradle_설정_검증)
+- [Transaction](#4.yml_환경설정)
+- [Inheritance](#6.도메인_분석_설계)
+- [Enumerated](#6.도메인_분석_설계)
+- [연관관계 편의 메서드](#6.도메인_분석_설계)
+
+
 ```
 * 개발환경 : Spring Boot, Thymeleaf, Spring Data JPA, Lombok, H2 DataBase
 ```
-### 1. 프로젝트 생성
+### 1.프로젝트_생성
 <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/setting/setting.png" width="400" height="300">
  
-### 2. 환경 설정 
+### 2.환경_설정 
  - lombok까지 모두 설치 후 Annotation Processors에서 Enable annotation processing 체크박스 선택 
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/setting/set_annotation_after_lombok.PNG" width="400" height="300">
  
-### 3. Maven 설정 및 검증
+### 3.Gradle_설정_검증
 #### 핵심 : (스프링(MVC, ORM, 데이터 JPA), DATA JPA, Hibernate 
 #### 기타 : H2 DB, HikariCP(Connection Pool), Thymeleaf, loging(SLF4J, LogBack), TEST
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/setting/dependencies.PNG" width="400" height="400">
@@ -24,7 +33,7 @@
 ```
 
 
-### 4. 환경설정 및 간단 API 구현
+### 4.yml_환경설정
 
 ```yml
 spring:
@@ -54,7 +63,7 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 * 테스트 환경에서는 트랜젝션 후 Rollback이 default로 이루어짐
 ```
 
-### 5. logging 설정 
+### 5.logging_설정 
 #### p6spy
 
 <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/log/logSetting.PNG" width="500" height="100">
@@ -72,7 +81,7 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 
 ```
 
-### 6. Entity 관계 정의
+### 6.도메인_분석_설계
 
 <div style="display: flex">
  <img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/setting.PNG" width="400" height="300">
@@ -101,7 +110,7 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 </div>
 
 ```
-@Inheritanceh(상속 매핑)
+@Inheritance(상속 매핑)
  1. SINGLE_TABLE : 테이블을 하나만 사용하는 방식(조인이 필요없기 때문에 조회 성능이 빠름)
  2. JOINED : 조인 전략(쿼리 복잡 및 CRUD할 경우 부모/자식 클래스 모두 저장하기 때문에 두번의 쿼리 실행)
  3. TABLE_PER_CLASS : 각각의 테이블을 만드는 방식 (추천하지않음 -> union을 사용하기 때문에 성능이 느림)
@@ -142,10 +151,12 @@ JPA는 Transaction을 기반으로 작동되기 때문에 @Transactional 필수�
 출처 : https://galid1.tistory.com/592
 
 ```
-<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relationMethod.PNG" width="400" height="400">
+<img src="https://raw.githubusercontent.com/mia02125/Spring_JPA_kimyoungHan/master/referIMG/entity/relationMethod.PNG" width="300" height="300">
 
 ```
-* 연관관계 메서드 
-Member vo내 데이터를 적재 시 order의 데이터까지 넣어야하는것을 다음과 같이 간단하게 만들 수 있다. 
+* 연관관계 편의 메서드 ( 양방향일 때 사용하면 유용 ) 
+양방향 연관관계를 가진 도메인에서 연관관계 편의 메소드를 통해서 제어 ( 제어할 수 있는 도메인에 정의하는 것이 낫다 ) 
+ex) Member vo내 데이터를 적재 시 order의 데이터까지 넣어야하는것을 다음과 같이 간단하게 만들 수 있다. 
+
 ```
  
