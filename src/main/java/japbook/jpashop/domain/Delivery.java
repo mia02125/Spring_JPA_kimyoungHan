@@ -25,7 +25,7 @@ public class Delivery {
     * 절대 사용 금지 => Enum 가운데 구분값을 추가하면 시스템 전체적인 문제 발생
     STRING : 문자열로 지정
     */
-    @Enumerated(EnumType.STRING) 
+    @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
 
     /*

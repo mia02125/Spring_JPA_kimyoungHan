@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class MainController {
 
     @GetMapping("/")
-    public String main(Model model) {
-        model.addAttribute("data", "hellow");
+    public String main() {
         return "index";
     }
 

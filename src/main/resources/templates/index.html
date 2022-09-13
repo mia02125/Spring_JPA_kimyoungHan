@@ -8,11 +8,9 @@
 </head>
 
 <body>
-    <p th:text="${data}"></p>
-    <p>[[${data}]]</p>
-
-    <input type="button" onclick="saveOrder();" value="저장"/>
-    <input type="button" onclick="findOrder();" value="찾기"/>
+    NAME : <input id="memberName">
+    <button type="button" onclick="saveOrder();">저장</button>
+    <button type="button" onclick="findOrder();">찾기</button>
 </body>
 <script>
 function asyncAjax(url, reqData, method) {
@@ -37,9 +35,20 @@ function asyncAjax(url, reqData, method) {
         let findOrder = await asyncAjax('/find', {id : 1}, 'POST');
         console.log(findOrder);
     }
+
     async function saveOrder() {
         let data = {
-          name : "jaemin"
+          name : $('#memberName').val(),
+          homeAddress : {
+              city : 'seoul',
+              street : 'seoul',
+              zipcode : 'seoul'
+          },
+          companyAddress : {
+            city : 'seoul',
+            street : 'seoul',
+            zipcode : 'seoul'
+          }
         }
         let result = await asyncAjax('/member', data, 'POST');
         console.log(result);
