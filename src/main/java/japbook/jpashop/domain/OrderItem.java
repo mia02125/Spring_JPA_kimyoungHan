@@ -25,7 +25,25 @@ public class OrderItem {
 
     private int orderPrice; /* 주문 가격 */
 
-    private int count; /* 주문 수량 */
+    private int count;
+
+    public void cancel() {
+        /* 상품 갯수의 재고를 count만큼 ++ */
+        getItem().addStock(count);
+    }
+
+    public static OrderItem createOrderItem(Item item, int count) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setOrderPrice(item.getPrice());
+        orderItem.setCount(count);
+        item.removeStock(count);
+        return orderItem;
+    }
 
 
+
+    public int getTotalPrice() {
+        return getOrderPrice() * getCount();
+    }
 }

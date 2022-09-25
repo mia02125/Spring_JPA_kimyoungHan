@@ -3,6 +3,7 @@ package japbook.jpashop.domain.item;
 
 import japbook.jpashop.domain.Category;
 import japbook.jpashop.domain.CategoryItem;
+import japbook.jpashop.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -45,5 +46,19 @@ public abstract class Item {
     public void addCategoryItem(CategoryItem categoryItem) {
         categoryItems.add(categoryItem);
         categoryItem.setItem(this);
+    }
+    /* 재고 늘리기 */
+    public void addStock(int quantity) {
+        this.stockQuantity += quantity;
+    }
+    /* 재고 줄이기 */
+    public void removeStock(int quantity) {
+        int restStock = this.stockQuantity - quantity;
+        if(restStock < 0) { // 재고가 0개 이하 인경우 에러 호출
+            throw new NotEnoughStockException("need more stock");
+        }
+        this.stockQuantity = restStock;
+
+
     }
 }
