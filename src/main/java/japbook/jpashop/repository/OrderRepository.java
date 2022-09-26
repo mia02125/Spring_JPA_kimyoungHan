@@ -1,6 +1,7 @@
 package japbook.jpashop.repository;
 
 import japbook.jpashop.domain.Order;
+import japbook.jpashop.domain.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -27,4 +28,15 @@ public class OrderRepository {
     public Order findOrder(Long id) {
         return em.find(Order.class, id);
     }
+
+    public  List<Order> findAll(OrderSearch orderSearch) {
+        return em.createQuery("SELECT o FROM Order o JOIN o.member m" +
+                        " WHERE o.status = :status" +
+                        " AND m.name like :name", Order.class)
+                        .setParameter("status", orderSearch.getOrderStatus())
+                        .setParameter("name", orderSearch.getMemberName())
+                        .setMaxResults(100).getResultList();
+    }
+
+
 }
