@@ -1,16 +1,19 @@
 package japbook.jpashop.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@ApiModel(value = "회원 도메인")
 @Entity
 @Getter /* 실무에서는, 가급적 열어두기  */
 @Setter /* 실무에서는, 꼭 필요한 경우에만 사용 */
 public class Member {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -18,13 +18,15 @@ repositories {
 	mavenCentral()
 }
 /* spring에서 지원되는 라이브러리 정보는 자동으로 버전링이 되지만 외부 라이브러리는 수동으로 설정해줘야한다. */
+/* 추가 예정 : JWT, Spring Security */
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6' /* 출처 : https://github.com/gavlyukovskiy/spring-boot-data-source-decorator, 운영 배포 시 성능 테스트부터 진행 필요 */
-	implementation 'io.springfox:springfox-boot-starter:3.0.0' /* swagger */
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation "io.springfox:springfox-swagger-ui:3.0.0"
 	implementation 'org.postgresql:postgresql:42.2.10'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
