@@ -1,24 +1,95 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<div th:replace="fragments/header :: header"></div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 <div class="container">
-    <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+    <div th:replace="fragments/header :: header"></div>
     <div class="form-group">
         <label th:for="name">이름</label>
-        <input class="form-control" placeholder="이름을 입력하세요" type="text">
+        <input class="form-control" id="name" placeholder="이름을 입력하세요"  type="text">
     </div>
+    <label th:for="homeAddress"><b>집 주소</b></label>
     <div class="form-group">
         <label th:for="city">도시</label>
-        <input class="form-control" placeholder="도시를 입력하세요" type="text"></div>
+        <input class="form-control" id="homeCity" placeholder="도시를 입력하세요" type="text">
+    </div>
     <div class="form-group">
         <label th:for="street">거리</label>
-        <input class="form-control" placeholder="거리를 입력하세요" type="text">
+        <input class="form-control" id="homeStreet" placeholder="거리를 입력하세요" type="text">
     </div>
     <div class="form-group">
         <label th:for="zipcode">우편번호</label>
-        <input class="form-control" placeholder="우편번호를 입력하세요" type="text"></div>
-    <button class="btn btn-primary" type="submit">Submit</button>
+        <input class="form-control" id="homeZipcode" placeholder="우편번호를 입력하세요" type="text">
+    </div>
+    <label th:for="homeAddress"><b>회사 주소</b></label>
+    <div class="form-group">
+        <label th:for="city">도시</label>
+        <input class="form-control" id="compCity" placeholder="도시를 입력하세요" type="text">
+    </div>
+    <div class="form-group">
+        <label th:for="street">거리</label>
+        <input class="form-control" id="compStreet" placeholder="거리를 입력하세요" type="text">
+    </div>
+    <div class="form-group">
+        <label th:for="zipcode">우편번호</label>
+        <input class="form-control" id="compZipcode" placeholder="우편번호를 입력하세요" type="text">
+    </div>
+    <br/>
+    <button class="btn btn-primary" id="btnSignupMember" type="button">저장</button>
     <br/>
     <div th:replace="fragments/footer :: footer"></div>
 </div>
+<script>
+function asyncAjax(url, reqData, method) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url : url,
+            data : JSON.stringify(reqData),
+            method : method,
+            contentType: 'application/json;charset=UTF-8',
+            dataType : 'json',
+            success : function (data) {
+                resolve(data);
+            },
+            error : function (error) {
+                reject(error);
+            }
+        });
+    });
+}
+
+$(document).ready(function () {
+    /* 회원가입 */
+    $('#btnSignupMember').click(async function() {
+        console.log('hi');
+        let data = {
+            name : $('#name').val(),
+            homeAddress : {
+                city : $('#homeCity').val(),
+                street : $('#homeStreet').val(),
+                zipcode : $('#homeZipcode').val()
+            },
+            companyAddress : {
+                city : $('#compCity').val(),
+                street : $('#compStreet').val(),
+                zipcode : $('#compZipcode').val()
+            }
+        }
+        let result = await asyncAjax("/member", data, 'post');
+        debugger;
+        if(result) {
+            alert('성공');
+        } else {
+            console.log(result);
+        }
+    });
+
+
+});
+
+
+</script>
+<!--<script type="text/javascript" th:src="@{/js/common.js}"></script>-->
+<!--<script type="text/javascript" th:src="@{/js/memberCommon.js}"></script>-->
 </html>

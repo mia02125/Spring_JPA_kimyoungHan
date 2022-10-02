@@ -12,7 +12,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create # 자동 테이블 생성
+      ddl-auto: none # 자동 테이블 생성
     properties:
       hibernate:
         format_sql: true
@@ -20,11 +20,14 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false # 배포 시 true
 
 logging:
   level:
     org.hibernate.SQL: debug # JPA가 생성하는 모든 SQL 로그가 보임
     org.hibernate.type : trace # 요청 파라미터값 출력
-
-
+server:
+  port: 8080

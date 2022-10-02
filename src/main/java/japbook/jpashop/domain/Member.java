@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 @ApiModel(value = "회원 도메인")
 @Entity
 @Getter /* 실무에서는, 가급적 열어두기  */

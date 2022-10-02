@@ -7,14 +7,19 @@
         <tr>
             <th>#</th>
             <th>이름</th>
-            <th>도시</th>
-            <th>주소</th>
-            <th>우편번호</th>
+            <th colspan="3">주소</th>
+<!--            <th>주소</th>-->
+<!--            <th>우편번호</th>-->
         </tr>
         </thead>
         <tbody>
-
-        </tbody>
+            <tr th:each="member : ${members}" style="border: #777777">
+                <td th:text="${member?.id}"></td>
+                <td th:text="${member?.name}"></td>
+                <td th:text="${member.homeAddress?.city}"></td>
+                <td th:text="${member.homeAddress?.street}"></td>
+                <td th:text="${member.homeAddress?.zipcode}"></td>
+            </tr>
     </table>
     <div th:replace="fragments/footer :: footer"></div>
 </div>

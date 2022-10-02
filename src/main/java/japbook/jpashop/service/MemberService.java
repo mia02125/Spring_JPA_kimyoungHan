@@ -3,7 +3,6 @@ package japbook.jpashop.service;
 import japbook.jpashop.domain.Member;
 import japbook.jpashop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,8 +22,10 @@ public class MemberService {
      * @return
      */
     public Long joinMember(Member member) {
-        validateDuplicateMember(member);
-        memberRepository.save(member);
+        boolean vaild = validateDuplicateMember(member);
+        if(vaild) {
+            memberRepository.save(member);
+        }
         return member.getId();
     }
     /**
@@ -41,10 +42,11 @@ public class MemberService {
     }
 
     /* 중복회원 검증 */
-    private void validateDuplicateMember(Member member) {
+    private boolean validateDuplicateMember(Member member) {
         List<Member> members = memberRepository.findByName(member.getName());
         if(!members.isEmpty()) {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
+        return true;
     }
 }
