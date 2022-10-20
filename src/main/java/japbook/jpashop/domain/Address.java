@@ -14,7 +14,6 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class Address {
 
-
     private String city;
     private String street;
     private String zipcode;

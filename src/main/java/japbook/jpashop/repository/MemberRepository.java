@@ -21,10 +21,10 @@ public class MemberRepository {
     public Member findMember(Long id) {
         return em.find(Member.class, id);
     }
-    public Optional<List<Member>> findMembers() {
+    public List<Member> findMembers() {
         /* qlString : Entity객체를 조회하여 sql을 만듬 */
-        return Optional.ofNullable(em.createQuery("SELECT m FROM Member m", Member.class)
-            .getResultList());
+        return em.createQuery("SELECT m FROM Member m", Member.class)
+            .getResultList();
     }
 
     public List<Member> findByName(String name) {

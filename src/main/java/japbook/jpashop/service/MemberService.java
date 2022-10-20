@@ -22,8 +22,8 @@ public class MemberService {
      * @return
      */
     public Long joinMember(Member member) {
-        boolean vaild = validateDuplicateMember(member);
-        if(vaild) {
+        boolean valid = validateDuplicateMember(member);
+        if(valid) {
             memberRepository.save(member);
         }
         return member.getId();
@@ -32,7 +32,7 @@ public class MemberService {
      * 회원 전체 조회
      */
     @Transactional(readOnly = true) /* readOnly = true인 경우 성능 확보 */
-    public Optional<List<Member>> findMembers() {
+    public List<Member> findMembers() {
         return memberRepository.findMembers();
     }
 

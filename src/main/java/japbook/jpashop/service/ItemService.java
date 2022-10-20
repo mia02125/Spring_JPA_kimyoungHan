@@ -1,5 +1,7 @@
 package japbook.jpashop.service;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import japbook.jpashop.config.QuerydslConfig;
 import japbook.jpashop.domain.item.Item;
 import japbook.jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;

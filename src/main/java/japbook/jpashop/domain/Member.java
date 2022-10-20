@@ -14,8 +14,6 @@ import java.util.List;
 @Getter /* 실무에서는, 가급적 열어두기  */
 @Setter /* 실무에서는, 꼭 필요한 경우에만 사용 */
 public class Member {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
